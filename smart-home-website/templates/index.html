@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Home Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <button id="modeToggle" class="mode-toggle">🌙</button>
+    <div class="container">
+        <h1>Welcome to Your Smart Home</h1>
+        <div class="card-grid">
+            <a href="/lights" class="card blue">
+                <h2>💡 Light Control</h2>
+                <p>Switch between auto and manual</p>
+            </a>
+            <a href="/temperature" class="card cyan">
+                <h2>🌡️ Temperature</h2>
+                <p>See live temperature</p>
+            </a>
+            <a href="/camera" class="card indigo">
+                <h2>📷 Surveillance</h2>
+                <p>Upload faces & detect motion</p>
+            </a>
+        </div>
+    </div>
+    <script>
+        const toggleBtn = document.getElementById("modeToggle");
+        toggleBtn.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+            toggleBtn.textContent = document.body.classList.contains("dark-mode") ? "☀" : "🌙";
+        });
+    </script>
+    
+</body>
+</html>
